@@ -48,8 +48,20 @@ export default function App() {
           headerTintColor: '#fff',
         }}
       >
-        <BottomTab.Screen name='Welcome' component={WelcomeScreen} />
-        <BottomTab.Screen name='User' component={UserScreen} />
+        <BottomTab.Screen
+          name='Welcome'
+          component={WelcomeScreen}
+          options={{
+            tabBarIcon: ({ color, size }) => {
+              return <Ionicons name='home' size={size} color={color} />;
+            },
+          }}
+        />
+        <BottomTab.Screen name='User' component={UserScreen} options={{
+          tabBarIcon: ({ color, size }) => {
+            return <Ionicons name='person' size={size} color={color} />;
+          },
+        }} />
       </BottomTab.Navigator>
     </NavigationContainer>
   );
