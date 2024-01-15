@@ -1,16 +1,18 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 import WelcomeScreen from './screens/WelcomeScreen';
 import UserScreen from './screens/UserScreen';
 
-const Drawer = createDrawerNavigator();
+// const Drawer = createDrawerNavigator();
+const BottomTab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator
+      {/* <Drawer.Navigator
         screenOptions={{
           headerStyle: { backgroundColor: '#3c0a6b' },
           headerTintColor: '#fff',
@@ -39,7 +41,16 @@ export default function App() {
             },
           }}
         />
-      </Drawer.Navigator>
+      </Drawer.Navigator> */}
+      <BottomTab.Navigator
+        screenOptions={{
+          headerStyle: { backgroundColor: '#3c0a6b' },
+          headerTintColor: '#fff',
+        }}
+      >
+        <BottomTab.Screen name='Welcome' component={WelcomeScreen} />
+        <BottomTab.Screen name='User' component={UserScreen} />
+      </BottomTab.Navigator>
     </NavigationContainer>
   );
 }
